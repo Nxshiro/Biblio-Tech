@@ -1,7 +1,6 @@
 package com.example.biblio_tech;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class Accueil extends AppCompatActivity {
