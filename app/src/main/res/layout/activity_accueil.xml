@@ -13,4 +13,12 @@
         android:id="@+id/titre"
         android:gravity="center"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bouton"
+        android:id="@+id/bouton"
+        android:layout_below="@id/titre"
+        android:onClick="search"/>
+
 </RelativeLayout>
