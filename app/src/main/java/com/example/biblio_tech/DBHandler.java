@@ -121,7 +121,7 @@ public class DBHandler extends SQLiteOpenHelper {
         int count = db.delete(DBContract.ALire.TABLE_NAME,selection,selectionArgs);
     }
 
-    public List<Response> selectAll() {
+    public List<Response> selectAllFavoris() {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String [] livres = {
@@ -137,6 +137,79 @@ public class DBHandler extends SQLiteOpenHelper {
 
         while(cursor.moveToNext()){
             int id = cursor.getInt((int)cursor.getColumnIndex(DBContract.Favori._ID_LIVRE));
+
+            Response r = new Response(id);
+            responses.add(r);
+        }
+        cursor.close();
+        return responses;
+    }
+
+    public List<Response> selectAllLus() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String [] livres = {
+                DBContract.Lu._ID_LIVRE
+        };
+
+        Cursor cursor = db.query(
+                DBContract.Lu.TABLE_NAME,
+                livres,null, null, null, null,null
+        );
+
+        List<Response> responses = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt((int)cursor.getColumnIndex(DBContract.Lu._ID_LIVRE));
+
+            Response r = new Response(id);
+            responses.add(r);
+        }
+
+        cursor.close();
+        return responses;
+    }
+
+    public List<Response> selectAllEnCours() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String [] livres = {
+                DBContract.EnCours._ID_LIVRE
+        };
+
+        Cursor cursor = db.query(
+                DBContract.EnCours.TABLE_NAME,
+                livres,null, null, null, null,null
+        );
+
+        List<Response> responses = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt((int)cursor.getColumnIndex(DBContract.EnCours._ID_LIVRE));
+
+            Response r = new Response(id);
+            responses.add(r);
+        }
+        cursor.close();
+        return responses;
+    }
+
+    public List<Response> selectAllALire() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String [] livres = {
+                DBContract.ALire._ID_LIVRE
+        };
+
+        Cursor cursor = db.query(
+                DBContract.ALire.TABLE_NAME,
+                livres,null, null, null, null,null
+        );
+
+        List<Response> responses = new ArrayList<>();
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt((int)cursor.getColumnIndex(DBContract.ALire._ID_LIVRE));
 
             Response r = new Response(id);
             responses.add(r);
