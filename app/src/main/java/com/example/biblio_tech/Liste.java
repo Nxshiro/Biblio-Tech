@@ -1,5 +1,6 @@
 package com.example.biblio_tech;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -112,14 +113,12 @@ public class Liste extends AppCompatActivity {
                     for(String res : result.get(i).getAuteur()){
                         auteurs+=res + "   ";
                     }
-                    Log.d("test3",auteurs);
                     auteur.setText(auteurs);
                     auteur.setId(j);
                     layout.addView(auteur);
                     j+=1;
                     image = new ImageView(getApplicationContext());
                     imageUri = result.get(i).getImage();
-                    Log.d("hatr",imageUri);
                     image.setId(j);
                     layout.addView(image);
                     Picasso.get().load(imageUri).into((ImageView) findViewById(j));
