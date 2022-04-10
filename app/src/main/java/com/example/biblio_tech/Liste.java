@@ -1,9 +1,14 @@
 package com.example.biblio_tech;
+import static java.lang.Integer.parseInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,28 +31,29 @@ public class Liste extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste);
-        RequestTask rt=new RequestTask();
+        RequestTask rt = new RequestTask();
         rt.execute();
     }
+
     private class RequestTask extends AsyncTask<Void, Void, ArrayList<Livre>> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)
 //  lance la requète
 
         private ArrayList<Livre> requete() {
             ArrayList<Livre> response = new ArrayList<Livre>();
-            String jsonRep ="";
+            String jsonRep = "";
             try {
                 HttpURLConnection connection = null;
                 URL url = new
-                        URL("https://www.googleapis.com/books/v1/volumes?q=maxResults=2&orderBy=newest&key=AIzaSyBPrb5q2FOsfs0beD1R-Kk8Ue_xjYERm0Q");
+                        URL("https://www.googleapis.com/books/v1/volumes?q=a&maxResults=7&orderBy=newest&key=AIzaSyBPrb5q2FOsfs0beD1R-Kk8Ue_xjYERm0Q");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String ligne = bufferedReader.readLine() ;
-                while (ligne!= null){
-                    jsonRep+=ligne;
+                String ligne = bufferedReader.readLine();
+                while (ligne != null) {
+                    jsonRep += ligne;
                     ligne = bufferedReader.readLine();
                 }
                 JSONObject toDecode = new JSONObject(jsonRep);
@@ -71,13 +77,13 @@ public class Liste extends AppCompatActivity {
             JSONObject js = new JSONObject();
             JSONArray aut = new JSONArray();
             ArrayList<String> autStr = new ArrayList<String>();
-            for(int j=0; j<ja.length(); j++) {
+            for (int j = 0; j < ja.length(); j++) {
                 autStr = new ArrayList<String>();
                 livre = new Livre();
                 js = ((JSONObject) ja.get(j)).getJSONObject("volumeInfo");
                 livre.setTitre((String) js.get("title"));
-                aut=js.getJSONArray("authors");
-                for(int i = 0;i<aut.length();i++){
+                aut = js.getJSONArray("authors");
+                for (int i = 0; i < aut.length(); i++) {
                     autStr.add(aut.get(i).toString());
                 }
                 livre.setAuteur(autStr);
@@ -99,33 +105,41 @@ public class Liste extends AppCompatActivity {
             ImageView image;
             int i = 0;
             LinearLayout layout = (LinearLayout) findViewById(R.id.layoutLivre);
-            if (result.size()>1){
-                int j=0;
-                String imageUri ="";
-                while(i<result.size()){
+            if (result.size() > 1) {
+                int j = 0;
+                String imageUri = "";
+                while (i < result.size()) {
                     titre = new TextView(getApplicationContext());
                     titre.setText(result.get(i).getTitre());
                     titre.setId(j);
                     layout.addView(titre);
-                    j+=1;
+                    j += 1;
                     auteur = new TextView(getApplicationContext());
-                    String auteurs ="";
-                    for(String res : result.get(i).getAuteur()){
-                        auteurs+=res + "   ";
+                    String auteurs = "";
+                    for (String res : result.get(i).getAuteur()) {
+                        auteurs += res + "   ";
                     }
                     auteur.setText(auteurs);
                     auteur.setId(j);
                     layout.addView(auteur);
-                    j+=1;
+                    j += 1;
                     image = new ImageView(getApplicationContext());
                     imageUri = result.get(i).getImage();
                     image.setId(j);
                     layout.addView(image);
                     Picasso.get().load(imageUri).into((ImageView) findViewById(j));
-                    j+=1;
+                    j += 1;
                     i++;
                 }
             }
         }
+    }
+
+    public void go(View v) {
+        String recherche = (((EditText) (findViewById(R.id.search))).getText().toString());
+        Log.d("rat", recherche);
+        Intent i = new Intent(this,Recherche.class);
+        i.putExtra("recherche",recherche);
+        startActivity(i);
     }
 }

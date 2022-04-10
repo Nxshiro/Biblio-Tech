@@ -2,4 +2,6 @@
     <string name="titre">Biblio-Tech</string>
     <string name="bouton">Clique</string>
     <string name="app_name">Biblio\'Tech</string>
+    <string name="search">Entrer le titre d\'un livre</string>
+    <string name="R">Rechercher</string>
 </resources>
