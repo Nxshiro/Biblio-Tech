@@ -2,4 +2,9 @@
     <string name="titre">Biblio-Tech</string>
     <string name="bouton">Clique</string>
     <string name="app_name">Biblio\'Tech</string>
+    <string name="fav">Coups de cœur</string>
+    <string name="lire">À lire</string>
+    <string name="cours">En cours</string>
+    <string name="lu">Lus</string>
+    <string name="plus">Voir plus</string>
 </resources>
