@@ -127,4 +127,10 @@
         android:text="@string/plus"
         android:background="@color/theme_fonce"
         android:layout_marginBottom="10dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment"/>
+
 </RelativeLayout>
