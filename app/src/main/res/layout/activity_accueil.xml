@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +10,7 @@
     tools:context=".Accueil"
     android:orientation="vertical">
 
-  <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,21 +42,23 @@
                 android:textSize="17sp"
                 android:layout_marginStart="20dp"/>
         </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-  
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/titre"
-        android:id="@+id/titre"
-        android:gravity="center"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/bouton"
-        android:id="@+id/bouton"
-        android:layout_below="@id/titre"
-        android:onClick="search"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titre"
+            android:id="@+id/titre"
+            android:layout_below="@id/toolbar"
+            android:gravity="center"
+            tools:ignore="NotSibling" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton"
+            android:id="@+id/bouton"
+            android:layout_below="@id/titre"
+            android:onClick="search"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </RelativeLayout>
