@@ -42,8 +42,6 @@
                 android:layout_marginStart="20dp"/>
         </androidx.appcompat.widget.Toolbar>
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,81 +56,11 @@
         android:text="@string/bouton"
         android:id="@+id/bouton"
         android:layout_below="@id/titre"
-        android:onClick="search"/>
-  </com.google.android.material.appbar.AppBarLayout>
-  
         android:onClick="search"
         android:background="@color/theme_fonce"
         android:gravity="center"
         android:layout_centerInParent="true"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fav"
-        android:layout_below="@id/bouton"
-        android:text="@string/fav"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bfav"
-        android:layout_below="@id/bouton"
-        android:layout_alignEnd="@id/fav"
-        android:text="@string/plus"
-        android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lire"
-        android:layout_below="@id/bfav"
-        android:text="@string/lire"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/blire"
-        android:layout_below="@id/bfav"
-        android:layout_alignEnd="@id/lire"
-        android:text="@string/plus"
-        android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
-
-    <TextView
-        android:id="@+id/cours"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/blire"
-        android:text="@string/cours" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bcours"
-        android:layout_below="@id/blire"
-        android:layout_alignEnd="@id/cours"
-        android:text="@string/plus"
-        android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lu"
-        android:layout_below="@id/bcours"
-        android:text="@string/lu"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/blu"
-        android:layout_below="@id/bcours"
-        android:layout_alignEnd="@id/lu"
-        android:text="@string/plus"
-        android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </RelativeLayout>
