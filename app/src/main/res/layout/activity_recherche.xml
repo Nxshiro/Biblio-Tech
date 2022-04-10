@@ -55,7 +55,8 @@
                 android:gravity="center_vertical"
                 android:text="@string/R"
                 android:textColor="@color/theme_clair"
-                android:textSize="9sp"/>
+                android:textSize="9sp"
+                android:onClick="goo"/>
 
         </androidx.appcompat.widget.Toolbar>
         <ScrollView

@@ -45,7 +45,7 @@ public class Liste extends AppCompatActivity {
             try {
                 HttpURLConnection connection = null;
                 URL url = new
-                        URL("https://www.googleapis.com/books/v1/volumes?q=a&maxResults=7&orderBy=newest&key=AIzaSyBPrb5q2FOsfs0beD1R-Kk8Ue_xjYERm0Q");
+                        URL("https://www.googleapis.com/books/v1/volumes?q=a&maxResults=10&orderBy=newest&key=AIzaSyBPrb5q2FOsfs0beD1R-Kk8Ue_xjYERm0Q");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
@@ -134,7 +134,6 @@ public class Liste extends AppCompatActivity {
             }
         }
     }
-
     public void go(View v) {
         String recherche = (((EditText) (findViewById(R.id.search))).getText().toString());
         Log.d("rat", recherche);

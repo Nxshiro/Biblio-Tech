@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,7 +50,7 @@ private class RequestTask extends AsyncTask<String, Void, ArrayList<Livre>> {
         try {
             HttpURLConnection connection = null;
             URL url = new
-                    URL("https://www.googleapis.com/books/v1/volumes?q="+search+"&maxResults=2&orderBy=newest&key=AIzaSyBPrb5q2FOsfs0beD1R-Kk8Ue_xjYERm0Q");
+                    URL("https://www.googleapis.com/books/v1/volumes?q="+search[0]+"&maxResults=7&orderBy=newest&key=AIzaSyBPrb5q2FOsfs0beD1R-Kk8Ue_xjYERm0Q");
 
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -137,4 +140,11 @@ private class RequestTask extends AsyncTask<String, Void, ArrayList<Livre>> {
         }
     }
 }
+    public void goo(View v) {
+        String recherche = (((EditText) (findViewById(R.id.search))).getText().toString());
+        Log.d("rat", recherche);
+        Intent i = new Intent(this,Recherche.class);
+        i.putExtra("recherche",recherche);
+        startActivity(i);
+    }
 }
