@@ -19,19 +19,10 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment, new ListeFragment());
-        ft.commit();
     }
     public void search(View v){
         Intent i = new Intent (Accueil.this, Liste.class);
         startActivity(i);
     }
 
-    public void goTo(@NonNull View v) {
-        if (v.getId()==R.id.bfav || v.getId()==R.id.blire || v.getId()==R.id.blu||v.getId()==R.id.bcours){
-            Intent i = new Intent(this, ListeFragment.class);
-            startActivity(i);
-        }
-    }
 }
