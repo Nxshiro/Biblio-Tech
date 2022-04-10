@@ -62,7 +62,8 @@
         android:onClick="search"
         android:background="@color/theme_fonce"
         android:gravity="center"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -78,7 +79,9 @@
         android:layout_alignEnd="@id/fav"
         android:text="@string/plus"
         android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:onClick="go"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,7 +97,8 @@
         android:layout_alignEnd="@id/lire"
         android:text="@string/plus"
         android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:onClick="go"/>
 
     <TextView
         android:id="@+id/cours"
@@ -111,7 +115,9 @@
         android:layout_alignEnd="@id/cours"
         android:text="@string/plus"
         android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:onClick="go"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,7 +132,8 @@
         android:layout_alignEnd="@id/lu"
         android:text="@string/plus"
         android:background="@color/theme_fonce"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:onClick="go"/>
 
     <FrameLayout
         android:layout_width="match_parent"

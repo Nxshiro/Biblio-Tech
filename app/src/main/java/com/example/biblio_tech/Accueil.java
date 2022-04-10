@@ -14,24 +14,46 @@ import android.widget.TextView;
 
 public class Accueil extends AppCompatActivity {
 
+    private Button fav, lu, enCours, aLire;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment, new ListeFragment());
-        ft.commit();
+        fav = (Button)findViewById(R.id.bfav);
+        lu = (Button)findViewById(R.id.blu);
+        enCours = (Button)findViewById(R.id.bcours);
+        aLire = (Button)findViewById(R.id.blire);
     }
+
     public void search(View v){
         Intent i = new Intent (Accueil.this, Liste.class);
         startActivity(i);
     }
 
-    public void goTo(@NonNull View v) {
-        if (v.getId()==R.id.bfav || v.getId()==R.id.blire || v.getId()==R.id.blu||v.getId()==R.id.bcours){
-            Intent i = new Intent(this, ListeFragment.class);
-            startActivity(i);
+    public void go(View v){
+
+        switch (v.getId()){
+            case R.id.bfav:
+                Intent i = new Intent(Accueil.this, Favori.class);
+                startActivity(i);
+                break;
+            case R.id.blu:
+                Intent i2 = new Intent(Accueil.this, Lu.class);
+                startActivity(i2);
+                break;
+            case R.id.bcours:
+                Intent i3 = new Intent(Accueil.this, EnCours.class);
+                startActivity(i3);
+                break;
+            case R.id.blire:
+                Intent i4 = new Intent(Accueil.this, ALire.class);
+                startActivity(i4);
+                break;
+            default:
+                break;
         }
     }
+
 }
