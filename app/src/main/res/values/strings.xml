@@ -1,3 +1,5 @@
 <resources>
+    <string name="titre">Biblio-Tech</string>
+    <string name="bouton">Clique</string>
     <string name="app_name">Biblio\'Tech</string>
 </resources>
